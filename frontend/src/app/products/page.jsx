@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "@/app/redux/Slice/ProductSlice";
 import { FaHeart, FaStar } from "react-icons/fa";
 
-export default function ProductsPage() {
+export default function page() {
   const dispatch = useDispatch();
 
   const { products, loading, error } = useSelector(
@@ -46,11 +46,12 @@ export default function ProductsPage() {
             All Products
           </h1>
 
-           <p className="text-gray-500 mt-3">
+          <p className="text-gray-500 mt-3">
             Explore our wide range of products and find the perfect
             fit for your needs.
           </p>
-        </div>
+        </div>  
+          
 
         {/* Products */}
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Providers from "../app/redux/providers";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "My Ecommerce",
@@ -17,9 +19,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
+          <Navbar />
           <Providers>
             {children}
           </Providers>
+        <Footer/>
         </body>
       </html>
     </ClerkProvider>

@@ -4,30 +4,37 @@ const API_URL = "http://127.0.0.1:8000/api/products/";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async () => {
-    const response = await fetch(API_URL);
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await fetch(API_URL);
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch products");
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
+      }
+
+      return await response.json();
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
-
-    return await response.json();
   }
 );
 
 const ProductSlice = createSlice({
   name: "products",
+
   initialState: {
     products: [],
     loading: false,
     error: null,
   },
+
   reducers: {},
 
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
 
       .addCase(fetchProducts.fulfilled, (state, action) => {
@@ -37,7 +44,7 @@ const ProductSlice = createSlice({
 
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
       });
   },
 });

@@ -146,9 +146,7 @@ const Navbar = () => {
                 <Link href="/products">Shop</Link>
               </li>
 
-              <li>
-                <Link href="/categories">Categories</Link>
-              </li>
+              
 
               <li>
                 <Link href="/blogs">Blogs</Link>
@@ -253,9 +251,7 @@ const Navbar = () => {
                 Shop
               </Link>
 
-              <Link href="/categories" onClick={() => setMenuOpen(false)}>
-                Categories
-              </Link>
+             
 
               <Link href="/blogs" onClick={() => setMenuOpen(false)}>
                 Blogs

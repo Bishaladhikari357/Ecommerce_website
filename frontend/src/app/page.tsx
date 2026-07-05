@@ -1,12 +1,16 @@
 import Image from "next/image";
-import Navbar from "../components/Navbar/Navbar";
 import ProductList from "../components/ProductList/ProductList";
+import HomeSlider from "../components/HomeSlider/HomeSlider";
+import Blogspage from "../components/Blogspage/Blogspage";
+import RotationImages from "../components/RotationImages/RotationImages";
 
 export default function Home() {
   return (
     <>
-    <Navbar />
+    <HomeSlider />
     <ProductList />
+    <RotationImages />
+    <Blogspage />
     </>
   );
 }
